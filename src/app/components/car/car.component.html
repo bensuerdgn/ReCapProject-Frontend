@@ -1,14 +1,15 @@
 <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded==true" class="table">
+<table *ngIf="dataLoaded==true" class="table table-primary">
     <thead>
         <tr>
-            <th>brandId</th>
-            <th>colorId</th>
-            <th>modelYear</th>
-            <th>dailyPrice</th>
-            <th>description</th>
+            <th>#</th>
+            <th>Brand</th>
+            <th>Color</th>
+            <th>Daily Price</th>
+            <th>Model year</th>
+            <th>Description</th>
         </tr>
     </thead>
     <tr *ngFor="let car of cars">
@@ -16,5 +17,7 @@
         <td>{{car.brandName}}</td>
         <td>{{car.colorName}}</td>
         <td>{{car.dailyPrice}}</td>
+        <td>{{car.modelYear}}</td>
+        <td>{{car.description}}</td>
     </tr>
 </table>
