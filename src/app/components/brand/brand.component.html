@@ -1,7 +1,22 @@
-<ul list-group>
-    <li (click)="setCurrentBrand(brand)" 
-    routerLink="/cars/brand/{{brand.id}}"
-    *ngFor="let brand of brands"
-    [class]="getCurrentBrandClass(brand)">
-        {{brand.brandName}}</li>
-</ul>
+<div style="margin-bottom:20px" class="d-grid gap-2 col-12 mx-auto" routerLink="/cars">
+  <button class="btn btn-primary" type="button">ALL CARS</button>
+</div>
+<div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        BRANDS
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+      data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <ul class="list-group list-group-flush">
+          <li (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.id}}" *ngFor="let brand of brands"
+            [class]="getCurrentBrandClass(brand)">
+            {{brand.brandName}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>

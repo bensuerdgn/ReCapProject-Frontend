@@ -1,23 +1,30 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Loading...</span>
+<div class="row row-cols-3">
+  <div *ngFor="let car of cars" class="col">
+    <div class="card" style="width: 18rem;">
+      <div class="car-img-top">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{{car.imagePath}}" class="d-block w-100" alt="...">
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{car.brandName}}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Color : {{car.colorName}}</li>
+        <li class="list-group-item">Model Year : {{car.modelYear}}</li>
+        <li class="list-group-item">Description : {{car.description}}</li>
+        <li class="list-group-item">Daily Price : {{car.dailyPrice}}</li>
+      </ul>
+    </div>
+  </div>
 </div>
-<table *ngIf="dataLoaded==true" class="table table-primary">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Brand</th>
-            <th>Color</th>
-            <th>Daily Price</th>
-            <th>Model year</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let car of cars">
-        <td>{{car.carId}}</td>
-        <td>{{car.brandName}}</td>
-        <td>{{car.colorName}}</td>
-        <td>{{car.dailyPrice}}</td>
-        <td>{{car.modelYear}}</td>
-        <td>{{car.description}}</td>
-    </tr>
-</table>
