@@ -14,6 +14,7 @@ export class CarComponent implements OnInit {
   cars: Car[] = [];
   carImages: CarImage[] = [];
   dataLoaded = false;
+  filterText = "";
 
   imagePath: string = 'https://localhost:44318/Images/defaultCarImage.jpg';
 
@@ -58,5 +59,11 @@ export class CarComponent implements OnInit {
       this.cars = response.data;
       this.dataLoaded = true;
     });
+  } getSliderClassName(index: Number) {
+    if (index == 0) {
+      return 'carousel-item active';
+    } else {
+      return 'carousel-item';
+    }
   }
 }
