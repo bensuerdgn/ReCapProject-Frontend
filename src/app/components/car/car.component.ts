@@ -14,7 +14,8 @@ export class CarComponent implements OnInit {
   cars: Car[] = [];
   carImages: CarImage[] = [];
   dataLoaded = false;
-  filterText = "";
+  filterText = '';
+  currentCar: Car;
 
   imagePath: string = 'https://localhost:44318/Images/defaultCarImage.jpg';
 
@@ -30,12 +31,14 @@ export class CarComponent implements OnInit {
         this.getCarsDetailsByBrand(params['brandid']);
       } else if (params['colorid']) {
         this.getCarsDetailsByColor(params['colorid']);
+      } else if (params['carid']) {
+        this.getCars(params['carid']);
       } else {
         this.getCarsDetails();
       }
     });
   }
-  
+
   getCarsDetails() {
     this.carService.getCarsDetails().subscribe((response) => {
       this.cars = response.data;
@@ -59,11 +62,20 @@ export class CarComponent implements OnInit {
       this.cars = response.data;
       this.dataLoaded = true;
     });
-  } getSliderClassName(index: Number) {
+  }
+  getSliderClassName(index: Number) {
     if (index == 0) {
       return 'carousel-item active';
     } else {
       return 'carousel-item';
     }
+  }
+  getCars(carId: number) {
+    this.carService.getCars(carId).subscribe((response) => {
+      this.cars = response.data;
+    });
+  }
+  setCurrentCar(car: Car) {
+    this.currentCar = car;
   }
 }

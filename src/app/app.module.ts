@@ -11,9 +11,9 @@ import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { RentalComponent } from './components/rental/rental.component';
-import { CarImageComponent } from './components/car-image/car-image.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +24,9 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
     CustomerComponent,
     NaviComponent,
     RentalComponent,
-    CarImageComponent,
     VatAddedPipe,
-    FilterPipePipe
+    FilterPipePipe,
+    CarDetailComponent
   ],
   imports: [
     BrowserModule,

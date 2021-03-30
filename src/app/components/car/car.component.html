@@ -4,15 +4,14 @@
 </div>
 
 
-
 <div class="row row-cols-3">
-  <div *ngFor="let car of cars | filterPipe:filterText" class="col">
+  <div *ngFor="let car of cars | filterPipe:filterText" class="col" (click)="setCurrentCar(car)" routerLink="/cars/car-detail/{{car.carId}}">
     <div class="card" style="width: 18rem;">
       <div class="car-img-top">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="{{car.imagePath}}" class="d-block w-100" alt="...">
+              <img src="" class="d-block w-100" alt="...">
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
               data-bs-slide="prev">
